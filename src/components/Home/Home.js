@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+
+
 const Home = () => {
     return (
         <div id="home">
@@ -96,12 +99,17 @@ const Home = () => {
               </div>
             </div>
 
-            <a
+
+
+
+            <Link className="button border-only muted" to="/catalog">view all</Link>
+
+            {/* <a
               className="button border-only muted"
               href="/cityescape/blog.html"
             >
               view all
-            </a>
+            </a> */}
           </div>
         </section>
         </div>

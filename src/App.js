@@ -19,6 +19,8 @@ function App() {
 
 <Header/>
     <Routes>
+    <Route path="/" element={<Home />} />
+
     <Route path="/catalog/*" element={<Catalog />} />
             <Route path="/login" element={<Login />} />
             {/* <Route path="/logout" element={<Logout />} /> */}
