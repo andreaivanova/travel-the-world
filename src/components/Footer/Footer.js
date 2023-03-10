@@ -21,31 +21,7 @@ const Footer = () => {
             </p>
           </div>
 
-          <div id="footer__pages">
-            <h3>pages</h3>
-            <ul>
-              <li>
-                <Link to="/catalog">destinations</Link>
-                {/* <a href="blog.html">destinations</a> */}
-              </li>
-              <li>
-              <Link to="/login">login</Link>
-
-            
-              </li>
-              <li>
-              <Link to="/register">join us</Link>
-
-                {/* <a href="create.html">create</a> */}
-              </li>
-              {/* <li>
-                <a href="register.html">join us</a>
-              </li>
-              <li>
-                <a href="myPosts.html">my posts</a>
-              </li> */}
-            </ul>
-          </div>
+        
         </div>
       </footer>
     );
