@@ -1759,3 +1759,9 @@ input[type="submit"]:hover {
 .featured-photo-my-posts{
   background-image: url('../images/Sunset\ JPG\ Video\ Relaxing\ Destinations\ Travel\ Vlog\ Youtube\ Intro\ \(1\).jpg');
 }
+
+/* 
+.avatar__name{
+  pointer-events: none;
+  cursor: default;
+} */
