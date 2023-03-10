@@ -7,7 +7,7 @@ const Header = () => {
         <>
               <section className="container_wrapper above-the-fold--navigation" id="navigation_container">
               <div id="branding">
-                <a href="#">
+                {/* <a href="#"> */}
                   <h1 className="logo-container __center color-city">
                   <Link className="city" to="/">travel</Link>
                   <br />
@@ -20,19 +20,21 @@ const Header = () => {
                     <div className="es">the</div>
                     <div className="cape">world</div> */}
                   </h1>
-                </a>
+                {/* </a> */}
               </div>
               <label htmlFor="menu_icon">
                 {" "}
                 <i className="fa fa-bars"></i>
               </label>
               <input id="menu_icon" type="checkbox" />
+
               <menu className="color-cape"> 
 <Link to="/catalog">destinations</Link>
 <Link to="/login">login</Link>
 <Link to="/register">register</Link>
 <Link to="/create">create</Link>
 <Link to="/my-posts">my posts</Link>
+<Link to="/logout">logout </Link>
 
                 {/* <a href="#"> destinations</a>
                 <a href="#"> login</a>
