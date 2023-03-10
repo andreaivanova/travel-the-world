@@ -1,4 +1,4 @@
-import MyDestinationCard from "./Destination Card/DestinationCard";
+import MyDestinationCard from "./Destination Card/MyDestinationCard";
 
 
 const MyDestinationList = () => {

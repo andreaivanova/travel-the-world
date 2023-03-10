@@ -39,7 +39,7 @@ const Details = () =>{
                  
 <br />
 
-                <Link className="like-button like-button2" to="/details/the-of-the-current-desy/edit">Edit</Link>
+                
                     </p>
 </div>
                   
@@ -57,7 +57,7 @@ const Details = () =>{
                 <img className="destination-image post__media_photo" src="https://static.javatpoint.com/computer/images/what-is-the-url.png" />
 
                 {/* details */}
-              <p>Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It </p>
+              <p>DESCRIPTION OF THE LOCATION MUST BE WRITTEN HERE Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It </p>
            
               <h2>Why do you recommend this particular destination?</h2>
               <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web pag</p>

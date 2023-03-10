@@ -19,7 +19,10 @@ const Create = () => {
 <input className="comment__name"  type="text" placeholder="why do you recommend it?"/>
 <input className="comment__name"  type="text" placeholder="have you ever been there? share some of your experience"/>
 
+   
 
+
+   
 
                 <button className="comment__action">Add</button>
               </form>
