@@ -8,13 +8,29 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Details from "./components/Details/Details";
 import MyPosts from "./components/My Posts/MyPosts";
+import { Routes, Route } from "react-router-dom";
+
+
 
 function App() {
   return (
     <div id="container">
     
 
-      <Header /> 
+<Header/>
+    <Routes>
+    <Route path="/catalog/*" element={<Catalog />} />
+            <Route path="/login" element={<Login />} />
+            {/* <Route path="/logout" element={<Logout />} /> */}
+            <Route path="/register" element={<Register />} />
+            <Route path="/my-posts" element={<MyPosts />} />
+            <Route path="/create" element={<Create />} />
+            <Route path="/details/:id" element={<Details />} />
+            <Route path="/details/:id/edit" element={<Edit />} />
+</Routes>
+
+
+      {/* <Header /> 
      <Home /> 
     <Login /> 
     <Register /> 
@@ -22,7 +38,7 @@ function App() {
     <Create /> 
 <Catalog />
 <Details />
-<MyPosts />
+<MyPosts /> */}
      
 
       <footer>
