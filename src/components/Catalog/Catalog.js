@@ -22,7 +22,7 @@ const Catalog = () => {
              <br />
              <br />
              <br />
-             Here you can explore all of the destinations so you can choose more easily your next place to explore.
+             Here you can explore all of the destinations so you can choose more easily your next place to visit.
              </p>
             
            </div>

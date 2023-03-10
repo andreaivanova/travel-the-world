@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Register = () => {
 
     return (
@@ -38,7 +40,10 @@ const Register = () => {
         <input className="comment__name" type="password" placeholder="repeat password"/>
   
         <button className="comment__action">Register</button>
-        <a href="login.html">Already have an account?</a>
+
+        <Link to="/login">Already have an account?</Link>
+
+        
                 </form>
               </section>
             </div>
