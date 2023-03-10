@@ -1714,7 +1714,7 @@ input[type="submit"]:hover {
   background-color: #e7f5ff;
   border: 2px solid #2980b8;
 
-
+  
 
 
 }
@@ -1771,3 +1771,7 @@ input[type="submit"]:hover {
   flex-direction: row ;
   justify-content: space-between;
 } */
+
+.container_wrapper--editandCreateView{
+  padding-top: 100px;
+}

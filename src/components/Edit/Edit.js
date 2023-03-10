@@ -4,44 +4,20 @@ const Edit = () => {
         <>
         <div id="post__single-page">
           <section className="above-the-fold above_the_fold_create_and_edit">
-            <div className="container_wrapper container_wrapper--loginView">
-              {/* <section id="navigation_container">
-                <div id="branding">
-                <a href="index.html">
-                <h1 className="logo-container __center">
-                <div className="city">travel</div>
-                <div className="es">the</div>
-                <div className="cape">world</div>
-                </h1>
-                </a>
-                </div>
-                <label htmlfor="menu_icon">
-                {" "}
-                <i className="fa fa-bars"></i>
-                </label>
-                <input id="menu_icon" type="checkbox" />
-                <menu>
-                <a href="blog.html"> destinations</a>
-                <a href="login.html"> login</a>
-                <a href="register.html"> register</a>
-                <a href="blog.html"> join us</a>
-                <a href="blog.html"> login</a>
-                </menu>
-            </section> */}
+            <div className="container_wrapper container_wrapper--loginView 
+             container_wrapper--editandCreateView">
+            
 
               <section id="comment-form">
                 <h1 id="above-the-fold__description">Edit your post</h1>
                 <form className="comment-form__container form--login form--style--edit--create">
-                  <input
-                    className="comment__name"
-                    type="email"
-                    placeholder="email"
-                    />
-                  <input
-                    className="comment__name"
-                    type="password"
-                    placeholder="password"
-                    />
+                <input className="comment__name"  type="text" placeholder="city"/>
+<input className="comment__name"  type="text" placeholder="country"/>
+<input className="comment__name"  type="text" placeholder="description"/>
+<input className="comment__name"  type="text" placeholder="image url"/>
+<input className="comment__name"  type="text" placeholder="why do you recommend it?"/>
+<input className="comment__name"  type="text" placeholder="have you ever been there? share some of your experience"/>
+
 
                   <button className="comment__action">Edit</button>
            
