@@ -1,3 +1,5 @@
+import MyDestinationList from "../DestinationList/MyDestinationList";
+
 const MyPosts = () => {
     return (
     
@@ -35,7 +37,9 @@ const MyPosts = () => {
  
        <section id="blog-list">
          <div className="grid_post_container">
-           <div className="post-card"> <img className="destination-image" src="https://static.javatpoint.com/computer/images/what-is-the-url.png" />
+
+<MyDestinationList />
+           {/* <div className="post-card"> <img className="destination-image" src="https://static.javatpoint.com/computer/images/what-is-the-url.png" />
   <div className="post-card__details">
     <h2><a href="post.html">Lorem ipsum dolor sit amet, consectetur, adipiscing </a></h2>
     <p>Lrem ipsum dolor sit amet, sed do eiusmod consectetur adipiscing elit, sed do eiusmod? — Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Sed do eiusmod</p><a className="post-card__avatar" href="post.html">
@@ -98,7 +102,7 @@ const MyPosts = () => {
  
       <div className="avatar__muted-line"></div></a>
              </div>
-           </div>
+           </div> */}
 
 
          </div>
