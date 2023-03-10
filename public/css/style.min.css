@@ -1765,3 +1765,9 @@ input[type="submit"]:hover {
   pointer-events: none;
   cursor: default;
 } */
+
+/* .flexbox-view{
+  display: flex;
+  flex-direction: row ;
+  justify-content: space-between;
+} */

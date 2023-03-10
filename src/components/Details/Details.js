@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Details = () =>{
@@ -5,6 +6,16 @@ const Details = () =>{
 
     return(
 <>
+
+
+{/* how the details and edit buttons should look like:
+<Route path="/details/:id" element={<Details />} />
+            <Route path="/details/:id/edit" element={<Edit />} />
+            
+            
+            
+            */}
+
 
         <div id="post__single-page">
         <div className="container_wrapper">
@@ -20,9 +31,19 @@ const Details = () =>{
                     {/* <br />
                     <br /> */}
                     {/* <h5>Written by name</h5> */}
+
+                 
+<div className="flexbox-view">
+
                     <p className="post-title-details">Written by Name Surname 
-                
+                 
+<br />
+
+                <Link className="like-button like-button2" to="/details/the-of-the-current-desy/edit">Edit</Link>
                     </p>
+</div>
+                  
+
                     {/* <p className="post-title-details">Like this post </p> */}
                   {/* </div> */}
                 {/* </div> */}
