@@ -3,6 +3,22 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
 
+  const user = null;
+
+  const guestNav = (<>
+  <Link to="/login">login</Link>
+  <Link to="/register">register</Link>
+  </>
+  );
+  const userNav = (
+    <>
+<Link to="/my-posts">my posts</Link>
+    <Link to="/create">create</Link>
+<Link to="/logout">logout </Link>
+    </>
+  );
+
+
     return (
         <>
               <section className="container_wrapper above-the-fold--navigation" id="navigation_container">
@@ -30,11 +46,8 @@ const Header = () => {
 
               <menu className="color-cape"> 
 <Link to="/catalog">destinations</Link>
-<Link to="/login">login</Link>
-<Link to="/register">register</Link>
-<Link to="/create">create</Link>
-<Link to="/my-posts">my posts</Link>
-<Link to="/logout">logout </Link>
+{user ? userNav : guestNav}
+
 
                 {/* <a href="#"> destinations</a>
                 <a href="#"> login</a>
