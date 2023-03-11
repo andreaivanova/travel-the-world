@@ -1,5 +1,7 @@
 const baseUrl = "https://softuni-custom-server2.herokuapp.com/data";
 
+
+// CRUD services
 export async function getAll() {
   let res = await fetch(`${baseUrl}/destinations`);
   let data = await res.json();
