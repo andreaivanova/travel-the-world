@@ -11,42 +11,56 @@ import Details from "./components/Details/Details";
 import MyPosts from "./components/My Posts/MyPosts";
 import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
+import useLocalStorage from "./hooks/useLocalStorage";
+import { AuthContext } from "./contexts/AuthContext";
 
 
+const initialAuthState = {
+  email: "",
+  accessToken: "",
+  _id: "",
+};
 
 function App() {
+  const [user, setUser] = useLocalStorage("user", initialAuthState);
+
+  const login = (authData) => {
+    setUser(authData);
+  };
+
+  // const register = (authData) => {
+  //   setUser(authData);
+  // };
+
+  const logout = () => {
+    //in this way we reset the state
+    setUser(initialAuthState);
+  };
+
   return (
-    <div id="container">
-    
-
-<Header/>
-    <Routes>
-    <Route path="/" element={<Home />} />
-
-    <Route path="/catalog/*" element={<Catalog />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/logout" element={<Logout />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/my-posts" element={<MyPosts />} />
-            <Route path="/create" element={<Create />} />
-            <Route path="/details/:id" element={<Details />} />
-            <Route path="/details/:id/edit" element={<Edit />} />
-</Routes>
+    <AuthContext.Provider value={{ user, login, logout }}>
 
 
-      {/* <Header /> 
-     <Home /> 
-    <Login /> 
-    <Register /> 
-    <Edit /> 
-    <Create /> 
-<Catalog />
-<Details />
-<MyPosts /> */}
-     
+      <div id="container">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-     <Footer />
-    </div>
+          <Route path="/catalog/*" element={<Catalog />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/my-posts" element={<MyPosts />} />
+          <Route path="/create" element={<Create />} />
+          <Route path="/details/:id" element={<Details />} />
+          <Route path="/details/:id/edit" element={<Edit />} />
+        </Routes>
+
+        <Footer />
+      </div>
+
+
+    </AuthContext.Provider>
   );
 }
 
