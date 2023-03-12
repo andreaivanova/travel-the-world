@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 
+
 const MyDestinationCard = ({ destination }) => {
+
+ 
+
   return (
     <>
       <div className="post-card">
@@ -13,14 +17,14 @@ const MyDestinationCard = ({ destination }) => {
           </h2>
           <p>{destination.description}</p>
 
-          <Link
+          {/* <Link
             className="like-button like-button2"
             to={`/details/${destination._id}/edit` }         
             >
             Edit
           </Link>
 
-          <Link className="like-button like-button2">Delete</Link>
+          <Link className="like-button like-button2" onClick={deleteHandler}>Delete</Link> */}
           <div className="avatar__muted-line"></div>
         </div>
       </div>

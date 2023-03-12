@@ -20,12 +20,12 @@ const Create = () => {
         formData.beenThere === ""
       ) {
         throw new Error("Please fill out all of the required fields!");
-        destinationService
-          .create({ ...formData }, user.accessToken)
-          .then((data) => {
-            nav("/catalog");
-          });
       }
+      destinationService
+        .create({ ...formData }, user.accessToken)
+        .then((data) => {
+          nav("/catalog");
+        });
     } catch (err) {
       alert(err.message);
     }
