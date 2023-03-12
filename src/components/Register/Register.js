@@ -16,7 +16,7 @@ const Register = () => {
     let regex = /.{6,}/g;
 
     try {
-      if (formData.email === "" || formData.password === "") {
+      if (formData.email === "" || formData.password === "" || formData.nameSurname === "") {
         throw new Error("Please fill out all of the required fields!");
       }
 
