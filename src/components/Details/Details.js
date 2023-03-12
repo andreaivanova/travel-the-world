@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useContext, useEffect, useState } from "react";
 
@@ -24,7 +24,20 @@ const Details = () => {
 
   const ownerButtons = (
     <>
-      <button className="like-button like-button2">Edit</button>
+      <Link
+        to={`/details/${id}/edit`}
+        className="like-button like-button2"
+        state={{
+          city: destination.city,
+          country: destination.country,
+          description: destination.description,
+          imageUrl: destination.imageUrl,
+          recommendation: destination.recommendation,
+          beenThere: destination.beenThere,
+        }}
+      >
+        Edit
+      </Link>
       <button className="like-button like-button2" onClick={deleteHandler}>
         Delete
       </button>
@@ -57,7 +70,7 @@ const Details = () => {
               <div className="post__avatar-name">
                 {/* <br />
                     <br /> */}
-                <h5>Written by name</h5>
+
                 {/* <button className="like-button like-button2">Edit</button>
                 <button
                   className="like-button like-button2"
@@ -65,10 +78,10 @@ const Details = () => {
                 >
                   Delete
                 </button> */}
-                {user._id &&
+                {/* {user._id &&
                   (user._id && user._id === destination._ownerId
                     ? ownerButtons
-                    : userButtons)}
+                    : userButtons)} */}
 
                 <div className="flexbox-view">
                   {/* <p className="post-title-details">Written by Name Surname  */}
@@ -113,8 +126,6 @@ const Details = () => {
                 desktop publishing packages and web pag
               </p>
               <div className="post__media_container">
-                {/* <div className="post__media_photo"></div> */}
-
                 <div className="post__media_caption">
                   <p>
                     There are many variations of passages of Lorem Ipsum
@@ -142,18 +153,6 @@ const Details = () => {
                 purpose (injected humour and the like).
               </p>
             </div>
-            {/* <div className="post__tags">
-              <h6>TAGS</h6>
-              <ul>
-                <li><a href="#">CEBU,</a></li>
-                <li><a href="#">CITYESACPE,</a></li>
-                <li><a href="#">ELEGANT BEACH RESORT,</a></li>
-                <li><a href="#">NORTH-CEBU,</a></li>
-                <li><a href="#">RESORT,</a></li>
-                <li><a href="#">REVIEW,</a></li>
-                <li><a href="#">TRAVEL-REVIEW</a></li>
-              </ul>
-            </div> */}
           </section>
           <section id="post-author-bio">
             <div className="author-bio__container">
@@ -161,46 +160,18 @@ const Details = () => {
               <div className="author-bio__description">
                 {/* <h2>Written by Name Surname</h2> */}
                 <h2>N people like this destination</h2>
+                {user._id &&
+                  (user._id && user._id === destination._ownerId
+                    ? ownerButtons
+                    : userButtons)}
+
                 {/* <button className="like-button like-button2">Like</button> */}
                 {/* <p>An aspiring cinematographer and front-end developer. Founder of cityescape.ph. Help me build a community where everyone's experience can make a difference. Join us now.</p> */}
               </div>
-              <div className="author-bio__social-media">
-                {/* <ul>
-                  <li><a className="fa fa-facebook" href="#"></a></li>
-                  <li><a className="fa fa-instagram" href="#"></a></li>
-                  <li><a className="fa fa-envelope" href="#"></a></li>
-                  <li><a className="fa fa-youtube" href="#"></a></li>
-                  <li><a className="fa fa-link" href="#"></a></li>
-                </ul> */}
-              </div>
+              <div className="author-bio__social-media"></div>
+              {/* <div className="comment__action"><a href="#">reply</a></div> */}
             </div>
           </section>
-          {/* 
-          <section id="post-comment">
-            <h5>LIKE THIS POST</h5>
-            <Button variant="primary">Primary</Button>
-            </section> */}
-          {/* <section id="post-comment">
-            <h5>LIKE THIS POST</h5>
-            <Button variant="primary">Primary</Button>
-            <div className="comment__container">
-              <div className="comment__avatar"><a href="#">avatar </a></div>
-              <div className="comment__description">
-                <h2>John Doe</h2><span>16 APR 2018</span>
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-              </div>
-              <div className="comment__action"><a href="#">reply</a></div>
-            </div>
-          </section>
-          <section id="comment-form">
-            <h5>Leave Comment</h5>
-            <form className="comment-form__container">
-              <input className="comment__name" placeholder="name" />
-              <input className="comment__email" placeholder="email" />
-              <input className="comment__message" placeholder="message" />
-              <button className="comment__action">submit</button>
-            </form>
-          </section> */}
         </div>
       </div>
     </>

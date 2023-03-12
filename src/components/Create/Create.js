@@ -50,7 +50,7 @@ const Create = () => {
                   className="comment__name"
                   type="text"
                   placeholder="city"
-                  name="city"
+                  name="city"  
                 />
                 <input
                   className="comment__name"

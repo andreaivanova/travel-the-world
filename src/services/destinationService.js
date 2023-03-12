@@ -48,3 +48,20 @@ export function deleteDestination(destinationId, token) {
     },
   }).then((res) => res.json());
 }
+
+
+
+export async function update(destinationData, token,destinationId) {
+  let res = await fetch(`${baseUrl}/destinations/${destinationId}`, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+      "X-Authorization": token,
+    },
+    body: JSON.stringify({ ...destinationData }),
+  });
+
+  let data = await res.json();
+
+  return data;
+}
