@@ -9,6 +9,16 @@ export async function getAll() {
   return result;
 }
 
+
+
+export async function getMy(userId) {
+  let res = await fetch(`${baseUrl}/destinations/posts?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`);
+  let data = await res.json();
+  let result = Object.values(data);
+  return result;
+}
+
+
 export async function create(destinationData, token) {
   let res = await fetch(`${baseUrl}/destinations`, {
     method: "POST",

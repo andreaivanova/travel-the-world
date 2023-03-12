@@ -16,6 +16,7 @@ import { AuthContext } from "./contexts/AuthContext";
 
 
 const initialAuthState = {
+  nameSurname: "",
   email: "",
   accessToken: "",
   _id: "",
