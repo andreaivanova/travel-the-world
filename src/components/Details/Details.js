@@ -35,12 +35,12 @@ const Details = () =>{
                  
 <div className="flexbox-view">
 
-                    <p className="post-title-details">Written by Name Surname 
+                    {/* <p className="post-title-details">Written by Name Surname  */}
                  
 <br />
 
                 
-                    </p>
+                    {/* </p> */}
 </div>
                   
 
@@ -89,7 +89,7 @@ const Details = () =>{
             <div className="author-bio__container">
               {/* <div className="author-bio__avatar"><a href="#">avatar </a></div> */}
               <div className="author-bio__description">
-                <h2>Written by Name Surname</h2>
+                {/* <h2>Written by Name Surname</h2> */}
                 <h2>N people like this destination</h2>
                 <button className="like-button like-button2">Like</button>
                 {/* <p>An aspiring cinematographer and front-end developer. Founder of cityescape.ph. Help me build a community where everyone's experience can make a difference. Join us now.</p> */}

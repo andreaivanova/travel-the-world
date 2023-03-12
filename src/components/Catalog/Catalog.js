@@ -1,7 +1,10 @@
+
 import { Link } from "react-router-dom";
 import DestinationList from "../DestinationList/DestinationList";
 
 const Catalog = () => {
+
+
     return (
     
       <> 
