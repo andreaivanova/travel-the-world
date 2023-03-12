@@ -28,9 +28,9 @@ function App() {
     setUser(authData);
   };
 
-  // const register = (authData) => {
-  //   setUser(authData);
-  // };
+  const register = (authData) => {
+    setUser(authData);
+  };
 
   const logout = () => {
     //in this way we reset the state
@@ -38,7 +38,7 @@ function App() {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, register, logout }}>
 
 
       <div id="container">

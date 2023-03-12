@@ -17,13 +17,13 @@ export async function login(email, password) {
   }
 }
 
-export async function register(email, password) {
+export async function register(email, password, nameSurname) {
   const res = await fetch(`${baseUrl}/users/register`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
     },
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify({ email, password, nameSurname }),
   });
 
   let jsonResult = await res.json();

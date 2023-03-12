@@ -9,19 +9,19 @@ const Login = () => {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const onLoginHandler = function onLoginHandler(event) {
+  const onLoginHandler = (event) =>{
     event.preventDefault();
-    let formdata = new FormData(event.currentTarget);
-    let email = formdata.get("email");
-    let password = formdata.get("password");
+    let formData = Object.fromEntries(new FormData(event.target));
+    // let email = formdata.get("email");
+    // let password = formdata.get("password");
 
     try {
-      if (email === "" || password === "") {
+      if (formData.email === "" || formData.password === "") {
         throw new Error("Please fill out all of the required fields!");
       }
 
       authService
-        .login(email, password)
+        .login(formData.email, formData.password)
         .then((data) => {
           login(data);
           navigate("/");
