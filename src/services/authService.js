@@ -41,6 +41,7 @@ export function logout(token) {
       "X-Authorization": token,
     },
   });
+  
 }
 
 export function getUser() {
