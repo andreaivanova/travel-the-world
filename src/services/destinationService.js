@@ -3,7 +3,7 @@ const baseUrl = "https://softuni-custom-server2.herokuapp.com/data";
 
 // CRUD services
 export async function getAll() {
-  let res = await fetch(`${baseUrl}/destinations`);
+  let res = await fetch(`${baseUrl}/destinations/?sortBy=_createdOn%20desc`);
   let data = await res.json();
   let result = Object.values(data);
   return result;
