@@ -30,9 +30,6 @@ const Home = () => {
           <div className="container_wrapper">
             <div className="grid_post_container">
 <DestinationList />
-<DestinationList />
-
-<DestinationList />
 
 
                 {/* <div className="post-card">

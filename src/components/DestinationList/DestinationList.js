@@ -1,16 +1,25 @@
 import { useState, useEffect } from "react";
 import DestinationCard from "./Destination Card/DestinationCard";
 import * as destinationService from "../../services/destinationService";
+import { useLocation } from "react-router-dom";
 
 const DestinationList = () => {
   const [destinations, setDestinations] = useState([]);
+  const location = useLocation();
+
+
   useEffect(() => {
-    destinationService.getAll().then((data) => setDestinations(data));
-  });
+    destinationService.getAll().then((data) => {
+      if (location.pathname === "/") {
+        data = data.slice(0, 3);
+      }
+      setDestinations(data);
+    });
+  }, []);
+
 
   return (
     <>
-      {/* // of all of the destination cards must be loaded here via the Map method is JS */}
       {destinations.length > 0 ? (
         <>
           {destinations.map((x) => (
