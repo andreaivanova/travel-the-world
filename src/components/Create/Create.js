@@ -10,11 +10,25 @@ const Create = () => {
     event.preventDefault();
     let formData = Object.fromEntries(new FormData(event.target));
 
-    destinationService
-      .create({ ...formData }, user.accessToken)
-      .then((data) => {
-        nav("/catalog");
-      });
+    try {
+      if (
+        formData.city === "" ||
+        formData.country === "" ||
+        formData.description === "" ||
+        formData.imageUrl === "" ||
+        formData.recommendation === "" ||
+        formData.beenThere === ""
+      ) {
+        throw new Error("Please fill out all of the required fields!");
+        destinationService
+          .create({ ...formData }, user.accessToken)
+          .then((data) => {
+            nav("/catalog");
+          });
+      }
+    } catch (err) {
+      alert(err.message);
+    }
   };
 
   return (
