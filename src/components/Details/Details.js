@@ -1,8 +1,12 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useContext, useEffect, useState } from "react";
-
 import * as destinationService from "../../services/destinationService";
+
+
+
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 const Details = () => {
   const { user } = useContext(AuthContext);
@@ -17,10 +21,35 @@ const Details = () => {
   }, []);
 
   const deleteHandler = function onDelete(event) {
-    event.preventDefault();
+    // event.preventDefault();
     destinationService.deleteDestination(id, user.accessToken);
-    navigate("/my-posts");
+    navigate("/catalog");
   };
+
+
+
+
+  const submit = () => {
+
+    confirmAlert({
+      title: 'Confirm to delete',
+      message: 'Are you sure you want to delete this?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => deleteHandler()
+        },
+        {
+          label: 'No',
+          // onClick: () => alert('Click No')
+        }
+      ]
+    });
+  }
+
+
+
+
 
   const ownerButtons = (
     <>
@@ -38,7 +67,7 @@ const Details = () => {
       >
         Edit
       </Link>
-      <button className="like-button like-button2" onClick={deleteHandler}>
+      <button className="like-button like-button2" onClick={submit}>
         Delete
       </button>
     </>
