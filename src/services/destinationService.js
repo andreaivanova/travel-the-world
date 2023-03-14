@@ -65,3 +65,45 @@ export async function update(destinationData, token,destinationId) {
 
   return data;
 }
+
+
+export async function likeAPost(postId, token) {
+  const res = await fetch(`${baseUrl}/data/likes`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "X-Authorization": token,
+    },
+    body: JSON.stringify({ postId }),
+  });
+
+  let jsonResult = await res.json();
+  if (res.ok) {
+    return jsonResult;
+  } else {
+    throw jsonResult.message;
+  }
+}
+
+export async function totalLikesOfAPost(postId) {
+  const res = await fetch(
+    `${baseUrl}/data/likes?where=bookId%3D%22${postId}%22&distinct=_ownerId&count`
+  );
+
+  let jsonResult = await res.json();
+
+  return jsonResult;
+}
+
+
+
+export async function hasTheUserAlreadyLiked(postId, userId) {
+  const res = await fetch(
+    `${baseUrl}/data/likes?where=bookId%3D%22${postId}%22%20and%20_ownerId%3D%22${userId}%22&count`
+  );
+
+  let jsonResult = await res.json();
+
+  return jsonResult;
+}
+

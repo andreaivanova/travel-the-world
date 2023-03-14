@@ -41,8 +41,11 @@ export function logout(token) {
       "X-Authorization": token,
     },
   });
-  
 }
+
+
+
+
 
 export function getUser() {
   let username = localStorage.getItem("username");

@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 
 const MyDestinationCard = ({ destination }) => {
 
+
  
 
+  
   return (
     <>
       <div className="post-card">

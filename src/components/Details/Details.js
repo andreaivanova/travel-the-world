@@ -2,11 +2,10 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useContext, useEffect, useState } from "react";
 import * as destinationService from "../../services/destinationService";
-
-
-
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+// import * as  authService from "../../services/authService";
+
 
 const Details = () => {
   const { user } = useContext(AuthContext);
@@ -23,8 +22,11 @@ const Details = () => {
   const deleteHandler = function onDelete(event) {
     // event.preventDefault();
     destinationService.deleteDestination(id, user.accessToken);
-    navigate("/catalog");
+    navigate(`/catalog`);
+    
   };
+
+
 
 
 
@@ -49,7 +51,18 @@ const Details = () => {
 
 
 
+  const onLikeHandler =()=>{
+    
+      destinationService
+        .likeAPost(params.id, user.accessToken)
+        .then((data) => {
+          navigate(`/details/${params.id}`);
+        });
+   }
 
+
+
+  const totalLikes =  null
 
   const ownerButtons = (
     <>
@@ -74,7 +87,7 @@ const Details = () => {
   );
 
   const userButtons = (
-    <button className="like-button like-button2">Like</button>
+    <button className="like-button like-button2" onClick={onLikeHandler}>Like</button>
   );
 
   return (
