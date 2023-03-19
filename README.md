@@ -11,7 +11,7 @@ This project is a SPA application, which represents a simple travel blog, writte
 
 
 ## Live Demo:
--the link must be included here
+https://travel-the-world-8288a.web.app/
 
 
 ## Guest users
