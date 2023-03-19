@@ -2,9 +2,6 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import * as authService from "../../services/authService";
-// import Alert from '@mui/material/Alert';
-// import { NotificationManager } from "react-notifications";
-// import 'react-notifications/lib/notifications.css';
 
 const Login = () => {
   const { login } = useContext(AuthContext);
@@ -13,8 +10,7 @@ const Login = () => {
   const onLoginHandler = (event) => {
     event.preventDefault();
     let formData = Object.fromEntries(new FormData(event.target));
-    // let email = formdata.get("email");
-    // let password = formdata.get("password");
+    
 
     try {
       if (formData.email === "" || formData.password === "") {
@@ -29,12 +25,9 @@ const Login = () => {
         })
         .catch(
           (err) =>
-            //todo- show notification
             alert(err.message)
-          // <Alert severity="warning">{err.message}</Alert>
         );
     } catch (err) {
-      // <Alert severity="warning">{err.message}</Alert>
       alert(err.message);
     }
   };

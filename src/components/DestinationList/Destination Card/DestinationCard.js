@@ -13,7 +13,7 @@ const DestinationCard = ({ destination }) => {
         </h2>
         <p>{destination.description}</p>
         <a className="post-card__avatar">
-          {/* <div className="avatar__name">by {destination._ownerId}</div> */}
+      
           <div className="avatar__muted-line"></div>
         </a>
       </div>

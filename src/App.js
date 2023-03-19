@@ -34,7 +34,7 @@ function App() {
   };
 
   const logout = () => {
-    //in this way we reset the state
+  
     setUser(initialAuthState);
   };
 

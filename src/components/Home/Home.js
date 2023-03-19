@@ -32,85 +32,6 @@ const Home = () => {
 <DestinationList />
 
 
-                {/* <div className="post-card">
-                <img
-                  className="destination-image"
-                  src="https://static.javatpoint.com/computer/images/what-is-the-url.png"
-                />
-                <div className="post-card__details">
-                  <h2>
-                    <a href="post.html">
-                      Lorem ipsum dolor sit amet, consectetur, adipiscing
-                    </a>
-                  </h2>
-                  <p>
-                    Lrem ipsum dolor sit amet, sed do eiusmod consectetur
-                    adipiscing elit, sed do eiusmod? — Lorem ipsum dolor sit
-                    amet, consectetur adipiscing elit, sed do eiusmod. Sed do
-                    eiusmod
-                  </p>
-                  <a className="post-card__avatar" href="post.html">
-                    <div className="avatar__name">by John Doe</div>
-                    <div className="avatar__muted-line"></div>
-                  </a>
-                </div>
-              </div>
-
-
-              <div className="post-card">
-                <img
-                  className="destination-image"
-                  src="https://static.javatpoint.com/computer/images/what-is-the-url.png"
-                />
-                <div className="post-card__details">
-                  <h2>
-                    <a href="post.html">
-                      Lorem ipsum dolor sit amet, consectetur, adipiscing
-                    </a>
-                  </h2>
-                  <p>
-                    Lrem ipsum dolor sit amet, sed do eiusmod consectetur
-                    adipiscing elit, sed do eiusmod? — Lorem ipsum dolor sit
-                    amet, consectetur adipiscing elit, sed do eiusmod. Sed do
-                    eiusmod
-                  </p>
-                  <a className="post-card__avatar" href="post.html">
-                    <div className="avatar__name">by John Doe</div>
-                    <div className="avatar__muted-line"></div>
-                  </a>
-                </div>
-              </div>
-
-
-              <div className="post-card">
-                <img
-                  className="destination-image"
-                  src="https://static.javatpoint.com/computer/images/what-is-the-url.png"
-                />
-                <div className="post-card__details">
-                  <h2>
-                    <a href="post.html">
-                      Lorem ipsum dolor sit amet, consectetur, adipiscing
-                    </a>
-                  </h2>
-                  <p>
-                    Lrem ipsum dolor sit amet, sed do eiusmod consectetur
-                    adipiscing elit, sed do eiusmod? — Lorem ipsum dolor sit
-                    amet, consectetur adipiscing elit, sed do eiusmod. Sed do
-                    eiusmod
-                  </p>
-                  <a className="post-card__avatar" href="post.html">
-                    <div className="avatar__name">by John Doe</div>
-                    <div className="avatar__muted-line"></div>
-                  </a>
-                </div>
-              </div> */}
-
-
-
-
-
-
             </div>
 
 
@@ -118,12 +39,7 @@ const Home = () => {
 
             <Link className="button border-only muted" to="/catalog">view all</Link>
 
-            {/* <a
-              className="button border-only muted"
-              href="/cityescape/blog.html"
-            >
-              view all
-            </a> */}
+        
           </div>
         </section>
         </div>

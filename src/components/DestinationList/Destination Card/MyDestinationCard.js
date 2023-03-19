@@ -19,14 +19,7 @@ const MyDestinationCard = ({ destination }) => {
           </h2>
           <p>{destination.description}</p>
 
-          {/* <Link
-            className="like-button like-button2"
-            to={`/details/${destination._id}/edit` }         
-            >
-            Edit
-          </Link>
-
-          <Link className="like-button like-button2" onClick={deleteHandler}>Delete</Link> */}
+         
           <div className="avatar__muted-line"></div>
         </div>
       </div>

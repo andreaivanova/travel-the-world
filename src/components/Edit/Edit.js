@@ -11,17 +11,10 @@ const Edit = () => {
     location.state;
 
   const { user } = useContext(AuthContext);
-  // const params = useParams();
+
   const { id } = useParams();
 
-  // setState(
-  //   city,
-  //   country,
-  //   description,
-  //   imageUrl,
-  //   recommendation,
-  //   beenThere,
-  // );
+ 
   const onDestinationEdit = (event) => {
     event.preventDefault();
     let formData = Object.fromEntries(new FormData(event.target));

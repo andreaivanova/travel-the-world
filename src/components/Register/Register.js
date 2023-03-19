@@ -34,7 +34,6 @@ const Register = () => {
           navigate("/");
         })
         .catch((err) =>
-          //todo- show notification
           alert(err)
         );
     } catch (err) {

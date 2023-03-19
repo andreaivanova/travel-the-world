@@ -35,7 +35,7 @@ const Details = () => {
         const likes = await destinationService.totalLikesOfAPost(id);
         setLikes(likes);
       };
-  console.log(likes);
+
   
       fetchLikes();
     }, [id]);
