@@ -8,7 +8,8 @@ import Login from "./components/Login/Login";
 import Logout from "./components/Logout/Logout";
 import Register from "./components/Register/Register";
 import Details from "./components/Details/Details";
-import MyPosts from "./components/My Posts/MyPosts";
+import MyPosts from "./components/MyPosts/MyPosts";
+import NotFound from "./components/NotFound/NotFound";
 import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import useLocalStorage from "./hooks/useLocalStorage";
@@ -55,6 +56,7 @@ function App() {
           <Route path="/create" element={<Create />} />
           <Route path="/details/:id" element={<Details />} />
           <Route path="/details/:id/edit" element={<Edit />} />
+          <Route path="*"  element={<NotFound />} />
         </Routes>
 
         <Footer />
