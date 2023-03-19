@@ -5,7 +5,7 @@ import * as destinationService from "../../services/destinationService";
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 // import * as  authService from "../../services/authService";
-
+import Like from '../Like/Like';
 
 const Details = () => {
   const { user } = useContext(AuthContext);
@@ -14,20 +14,65 @@ const Details = () => {
   const navigate = useNavigate();
 
   const [destination, setDestination] = useState({});
+  useEffect(() => {
+    destinationService.getOne(params.id).then((data) => 
+    
+    setDestination(data)
+    
+    
+    );
+  }, []);
+  
+
+  const [likes, setLikes] = useState(0);
+  const [hasLiked, setHasLiked] = useState(false);
+
+
+
 
   useEffect(() => {
-    destinationService.getOne(params.id).then((data) => setDestination(data));
-  }, []);
+      const fetchLikes = async () => {
+        const likes = await destinationService.totalLikesOfAPost(id);
+        setLikes(likes);
+      };
+  console.log(likes);
+  
+      fetchLikes();
+    }, [id]);
+  
+    useEffect(() => {
+      const checkIfLiked = async () => {
+        const result = await destinationService.hasTheUserAlreadyLiked(id, user._id);
+        console.log(result);
+        
+        setHasLiked(result > 0);
+      };
+  
+      checkIfLiked();
+    }, [id, user._id]);
+  
+    const handleLike = async () => {
+      await destinationService.likeAPost(id, user.accessToken);
+      setLikes(likes + 1);
+      setHasLiked(true);
+    };
 
+
+
+
+
+
+
+
+
+
+ 
   const deleteHandler = function onDelete(event) {
     // event.preventDefault();
     destinationService.deleteDestination(id, user.accessToken);
     navigate(`/catalog`);
     
   };
-
-
-
 
 
 
@@ -50,19 +95,6 @@ const Details = () => {
   }
 
 
-
-  const onLikeHandler =()=>{
-    
-      destinationService
-        .likeAPost(params.id, user.accessToken)
-        .then((data) => {
-          navigate(`/details/${params.id}`);
-        });
-   }
-
-
-
-  const totalLikes =  null
 
   const ownerButtons = (
     <>
@@ -87,8 +119,13 @@ const Details = () => {
   );
 
   const userButtons = (
-    <button className="like-button like-button2" onClick={onLikeHandler}>Like</button>
+    <Like  likes={likes}
+        hasLiked={hasLiked}
+        handleLike={handleLike}
+        disabled={hasLiked} id={id}/>
   );
+
+  // <Like destination={destination} id={id} userId={user._id} token={user.accessToken}/>
 
   return (
     <>
@@ -129,7 +166,7 @@ const Details = () => {
           <section id="post-author-bio">
             <div className="author-bio__container">
               <div className="author-bio__description">
-                <h2>N people like this destination</h2>
+               
                 {user._id &&
                   (user._id && user._id === destination._ownerId
                     ? ownerButtons

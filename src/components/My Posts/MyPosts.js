@@ -13,7 +13,7 @@ const MyPosts = () => {
             <div className="post_featured__photo--myPosts"></div>
             <div className="post_featured__details">
               <h2 className="featured-details__title">
-                Profile of {user.nameSurname}
+                Profile of {user.email}
               </h2>
               <a className="post-card__avatar" href="#">
                 <div className="avatar__muted-line"></div>

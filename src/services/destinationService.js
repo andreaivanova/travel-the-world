@@ -68,7 +68,7 @@ export async function update(destinationData, token,destinationId) {
 
 
 export async function likeAPost(postId, token) {
-  const res = await fetch(`${baseUrl}/data/likes`, {
+  const res = await fetch(`${baseUrl}/likes`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -87,7 +87,7 @@ export async function likeAPost(postId, token) {
 
 export async function totalLikesOfAPost(postId) {
   const res = await fetch(
-    `${baseUrl}/data/likes?where=bookId%3D%22${postId}%22&distinct=_ownerId&count`
+    `${baseUrl}/likes?where=postId%3D%22${postId}%22&distinct=_ownerId&count`
   );
 
   let jsonResult = await res.json();
@@ -99,7 +99,7 @@ export async function totalLikesOfAPost(postId) {
 
 export async function hasTheUserAlreadyLiked(postId, userId) {
   const res = await fetch(
-    `${baseUrl}/data/likes?where=bookId%3D%22${postId}%22%20and%20_ownerId%3D%22${userId}%22&count`
+    `${baseUrl}/likes?where=postId%3D%22${postId}%22%20and%20_ownerId%3D%22${userId}%22&count`
   );
 
   let jsonResult = await res.json();
