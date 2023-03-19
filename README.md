@@ -1,6 +1,38 @@
-# Getting Started with Create React App
+# Travel The World App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a SPA application, which represents a simple travel blog, written with React JS, where guests can explore and users can create, edit and delete posts dedicated to different destinations all around the world. It has a public and a private part. The public part includes the Home page, the Catalog page, the pages for Login and Register and a Details page for each post. The private part includes a profile of the currently logged user with all of the posts that they created, ability to create, edit and delete their own posts and like the other users' posts.
+
+
+## Technologies
+- JavaScript
+- HTML
+- CSS
+- Node.js
+
+
+## Live Demo:
+-the link must be included here
+
+
+## Guest users
+<img src="/public/photos-readme/Untitled" alt="Alt text" title="Optional title">
+<img src="/public/photos-readme/Untitled2" alt="Alt text" title="Optional title">
+<img src="/public/photos-readme/Untitle3" alt="Alt text" title="Optional title">
+<img src="/public/photos-readme/Untitle4" alt="Alt text" title="Optional title">
+<img src="/public/photos-readme/Untitle5" alt="Alt text" title="Optional title">
+<img src="/public/photos-readme/Untitle6" alt="Alt text" title="Optional title">
+
+
+## Logged-in users
+<img src="/public/photos-readme/Untitled7" alt="Alt text" title="Optional title">
+<img src="/public/photos-readme/Untitle8" alt="Alt text" title="Optional title">
+<img src="/public/photos-readme/Untitle9" alt="Alt text" title="Optional title">
+<img src="/public/photos-readme/Untitle10" alt="Alt text" title="Optional title">
+<img src="/public/photos-readme/Untitle11" alt="Alt text" title="Optional title">
+
+## Download and run the application on your computer
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app
 
 ## Available Scripts
 
