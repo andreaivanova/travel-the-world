@@ -16,19 +16,19 @@ This project is a SPA application, which represents a simple travel blog, writte
 
 ## Guest users
 <img src="/public/photos-readme/Untitled.png" alt="Alt text" title="Optional title">
-<img src="/public/photos-readme/Untitled2" alt="Alt text" title="Optional title">
-<img src="/public/photos-readme/Untitle3" alt="Alt text" title="Optional title">
-<img src="/public/photos-readme/Untitle4" alt="Alt text" title="Optional title">
-<img src="/public/photos-readme/Untitle5" alt="Alt text" title="Optional title">
-<img src="/public/photos-readme/Untitle6" alt="Alt text" title="Optional title">
+<img src="/public/photos-readme/Untitled2.png" alt="Alt text" title="Optional title">
+<img src="/public/photos-readme/Untitled3.png" alt="Alt text" title="Optional title">
+<img src="/public/photos-readme/Untitled4.png" alt="Alt text" title="Optional title">
+<img src="/public/photos-readme/Untitled5.png" alt="Alt text" title="Optional title">
+<img src="/public/photos-readme/Untitled6.png" alt="Alt text" title="Optional title">
 
 
 ## Logged-in users
-<img src="/public/photos-readme/Untitled7" alt="Alt text" title="Optional title">
-<img src="/public/photos-readme/Untitle8" alt="Alt text" title="Optional title">
-<img src="/public/photos-readme/Untitle9" alt="Alt text" title="Optional title">
-<img src="/public/photos-readme/Untitle10" alt="Alt text" title="Optional title">
-<img src="/public/photos-readme/Untitle11" alt="Alt text" title="Optional title">
+<img src="/public/photos-readme/Untitled7.png" alt="Alt text" title="Optional title">
+<img src="/public/photos-readme/Untitled8.png" alt="Alt text" title="Optional title">
+<img src="/public/photos-readme/Untitled9.png" alt="Alt text" title="Optional title">
+<img src="/public/photos-readme/Untitled10.png" alt="Alt text" title="Optional title">
+<img src="/public/photos-readme/Untitled11.png" alt="Alt text" title="Optional title">
 
 ## Download and run the application on your computer
 
