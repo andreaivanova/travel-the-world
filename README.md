@@ -15,7 +15,7 @@ This project is a SPA application, which represents a simple travel blog, writte
 
 
 ## Guest users
-<img src="/public/photos-readme/Untitled" alt="Alt text" title="Optional title">
+<img src="/public/photos-readme/Untitled.png" alt="Alt text" title="Optional title">
 <img src="/public/photos-readme/Untitled2" alt="Alt text" title="Optional title">
 <img src="/public/photos-readme/Untitle3" alt="Alt text" title="Optional title">
 <img src="/public/photos-readme/Untitle4" alt="Alt text" title="Optional title">
