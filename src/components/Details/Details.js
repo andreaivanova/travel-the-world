@@ -50,10 +50,24 @@ const Details = () => {
     checkIfLiked();
   }, [id, user._id]);
 
+<<<<<<< HEAD
   const handleLike = async () => {
     await destinationService.likeAPost(id, user.accessToken);
     setLikes(likes + 1);
     setHasLiked(true);
+=======
+
+
+
+
+
+ 
+  const deleteHandler = async function onDelete(event) {
+    // event.preventDefault();
+   await destinationService.deleteDestination(id, user.accessToken);
+    navigate(`/catalog`);
+    
+>>>>>>> 18d40b78a22968303a691f01a972c079c6888693
   };
 
   const deleteHandler = async function onDelete(event) {
