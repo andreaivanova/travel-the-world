@@ -1,12 +1,23 @@
-import { Link } from "react-router-dom";
-import * as authService from "../../services/authService";
-import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../contexts/AuthContext";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import * as authService from '../../services/authService';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
 
 const Register = () => {
   const navigate = useNavigate();
-  const { login, register } = useContext(AuthContext);
+  const { register } = useContext(AuthContext);
+  const [error, setError] = useState({ status: false, message: '' });
+  const [passwordErr, setPasswordError] = useState({
+    status: false,
+    message: '',
+  });
+  const [repeatPasswordErr, setRepeatPasswordError] = useState({
+    status: false,
+    message: '',
+  });
+
   const onRegisterHandler = (event) => {
     event.preventDefault();
 
@@ -15,30 +26,59 @@ const Register = () => {
     //regex for at least a 6 character long password
     let regex = /.{6,}/g;
 
-    try {
-      if (formData.email === "" || formData.password === "" || formData.nameSurname === "") {
-        throw new Error("Please fill out all of the required fields!");
-      }
-
-      if (!formData.password.match(regex)) {
-        throw new Error("Password must be at least 6 characters long!");
-      }
-
-      if (formData.password !== formData["confirm-pass"]) {
-        throw new Error("Passwords do not match!");
-      }
-      authService
-        .register(formData.email, formData.password, formData.nameSurname)
-        .then((data) => {
-          register(data);
-          navigate("/");
-        })
-        .catch((err) =>
-          alert(err)
-        );
-    } catch (err) {
-      alert(err.message);
+    if (
+      formData.email === '' ||
+      formData.password === '' ||
+      formData['confirm-pass'] === '' ||
+      formData.nameSurname === ''
+    ) {
+      setError({
+        status: true,
+        message: 'Please fill out all of the required fields!',
+      });
+      return;
+    } else {
+      setError({
+        status: false,
+        message: '',
+      });
     }
+
+    if (!formData.password.match(regex)) {
+      setPasswordError({
+        status: true,
+        message: 'Password must be at least 6 characters long!',
+      });
+      return;
+    } else {
+      setPasswordError({
+        status: false,
+        message: '',
+      });
+    }
+
+    if (formData.password !== formData['confirm-pass']) {
+      setRepeatPasswordError({
+        status: true,
+        message: 'Passwords do not match!',
+      });
+      return;
+    } else {
+      setRepeatPasswordError({
+        status: false,
+        message: '',
+      });
+    }
+
+    authService
+      .register(formData.email, formData.password, formData.nameSurname)
+      .then((data) => {
+        register(data);
+        navigate('/');
+      })
+      .catch((err) => {
+        setError({ status: true, message: err.message });
+      });
   };
 
   return (
@@ -52,6 +92,9 @@ const Register = () => {
                 className="comment-form__container form--login"
                 onSubmit={onRegisterHandler}
               >
+                {error.status && <p>{error.message}</p>}
+                {passwordErr.status && <p>{passwordErr.message}</p>}
+                {repeatPasswordErr.status && <p>{repeatPasswordErr.message}</p>}
                 <input
                   className="comment__name"
                   type="email"
@@ -63,14 +106,12 @@ const Register = () => {
                   type="text"
                   placeholder="name and surname"
                   name="nameSurname"
-
                 />
                 <input
                   className="comment__name"
                   type="password"
                   placeholder="password (min. 6 characters)"
                   name="password"
-
                 />
                 <input
                   className="comment__name"

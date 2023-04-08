@@ -1,35 +1,37 @@
-import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../contexts/AuthContext";
-import * as authService from "../../services/authService";
+import { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
+import * as authService from '../../services/authService';
+import { useState } from 'react';
 
 const Login = () => {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  const [error, setError] = useState({ status: false, message: '' });
+
   const onLoginHandler = (event) => {
     event.preventDefault();
     let formData = Object.fromEntries(new FormData(event.target));
-    
 
-    try {
-      if (formData.email === "" || formData.password === "") {
-        throw new Error("Please fill out all of the required fields!");
-      }
-
-      authService
-        .login(formData.email, formData.password)
-        .then((data) => {
-          login(data);
-          navigate("/");
-        })
-        .catch(
-          (err) =>
-            alert(err.message)
-        );
-    } catch (err) {
-      alert(err.message);
+    if (formData.email === '' || formData.password === '') {
+      setError({
+        status: true,
+        message: 'Please fill out all of the required fields!',
+      });
+      return;
     }
+
+    authService
+      .login(formData.email, formData.password)
+      .then((data) => {
+        login(data);
+        navigate('/');
+      })
+      .catch((err) => {
+        console.log(err);
+        setError({ status: true, message: err.message });
+      });
   };
 
   return (
@@ -43,6 +45,7 @@ const Login = () => {
                 className="comment-form__container form--login"
                 onSubmit={onLoginHandler}
               >
+                {error.status && <p>{error.message}</p>}
                 <input
                   className="comment__name"
                   type="email"

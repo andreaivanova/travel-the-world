@@ -1,7 +1,7 @@
-import { useParams, useNavigate, Link } from "react-router-dom";
-import { AuthContext } from "../../contexts/AuthContext";
-import { useContext, useEffect, useState } from "react";
-import * as destinationService from "../../services/destinationService";
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
+import { useContext, useEffect, useState } from 'react';
+import * as destinationService from '../../services/destinationService';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 // import * as  authService from "../../services/authService";
@@ -15,86 +15,69 @@ const Details = () => {
 
   const [destination, setDestination] = useState({});
   useEffect(() => {
-    destinationService.getOne(params.id).then((data) => 
-    
-    setDestination(data)
-    
-    
-    );
+    destinationService.getOne(params.id).then((data) => {
+      if (data.code === 404) {
+        navigate('/404');
+      }
+
+      setDestination(data);
+    });
   }, []);
-  
 
   const [likes, setLikes] = useState(0);
   const [hasLiked, setHasLiked] = useState(false);
 
-
-
-
   useEffect(() => {
-      const fetchLikes = async () => {
-        const likes = await destinationService.totalLikesOfAPost(id);
-        setLikes(likes);
-      };
-
-  
-      fetchLikes();
-    }, [id]);
-  
-    useEffect(() => {
-      const checkIfLiked = async () => {
-        const result = await destinationService.hasTheUserAlreadyLiked(id, user._id);
-        console.log(result);
-        
-        setHasLiked(result > 0);
-      };
-  
-      checkIfLiked();
-    }, [id, user._id]);
-  
-    const handleLike = async () => {
-      await destinationService.likeAPost(id, user.accessToken);
-      setLikes(likes + 1);
-      setHasLiked(true);
+    const fetchLikes = async () => {
+      const likes = await destinationService.totalLikesOfAPost(id);
+      setLikes(likes);
     };
 
+    fetchLikes();
+  }, [id]);
 
+  useEffect(() => {
+    const checkIfLiked = async () => {
+      const result = await destinationService.hasTheUserAlreadyLiked(
+        id,
+        user._id
+      );
+      console.log(result);
 
+      setHasLiked(result > 0);
+    };
 
+    checkIfLiked();
+  }, [id, user._id]);
 
-
-
-
-
-
- 
-  const deleteHandler = function onDelete(event) {
-    // event.preventDefault();
-    destinationService.deleteDestination(id, user.accessToken);
-    navigate(`/catalog`);
-    
+  const handleLike = async () => {
+    await destinationService.likeAPost(id, user.accessToken);
+    setLikes(likes + 1);
+    setHasLiked(true);
   };
 
-
+  const deleteHandler = async function onDelete(event) {
+    // event.preventDefault();
+    await destinationService.deleteDestination(id, user.accessToken);
+    navigate(`/catalog`);
+  };
 
   const submit = () => {
-
     confirmAlert({
       title: 'Confirm to delete',
       message: 'Are you sure you want to delete this?',
       buttons: [
         {
           label: 'Yes',
-          onClick: () => deleteHandler()
+          onClick: () => deleteHandler(),
         },
         {
           label: 'No',
           // onClick: () => alert('Click No')
-        }
-      ]
+        },
+      ],
     });
-  }
-
-
+  };
 
   const ownerButtons = (
     <>
@@ -119,10 +102,13 @@ const Details = () => {
   );
 
   const userButtons = (
-    <Like  likes={likes}
-        hasLiked={hasLiked}
-        handleLike={handleLike}
-        disabled={hasLiked} id={id}/>
+    <Like
+      likes={likes}
+      hasLiked={hasLiked}
+      handleLike={handleLike}
+      disabled={hasLiked}
+      id={id}
+    />
   );
 
   // <Like destination={destination} id={id} userId={user._id} token={user.accessToken}/>
@@ -166,7 +152,6 @@ const Details = () => {
           <section id="post-author-bio">
             <div className="author-bio__container">
               <div className="author-bio__description">
-               
                 {user._id &&
                   (user._id && user._id === destination._ownerId
                     ? ownerButtons

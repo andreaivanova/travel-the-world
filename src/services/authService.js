@@ -1,10 +1,10 @@
-const baseUrl = "https://softuni-custom-server2.herokuapp.com";
+const baseUrl = 'https://softuni-custom-server2.herokuapp.com';
 
 export async function login(email, password) {
   const res = await fetch(`${baseUrl}/users/login`, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "content-type": "application/json",
+      'content-type': 'application/json',
     },
     body: JSON.stringify({ email, password }),
   });
@@ -13,15 +13,15 @@ export async function login(email, password) {
   if (res.ok) {
     return jsonResult;
   } else {
-    throw jsonResult.message;
+    throw jsonResult;
   }
 }
 
 export async function register(email, password, nameSurname) {
   const res = await fetch(`${baseUrl}/users/register`, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "content-type": "application/json",
+      'content-type': 'application/json',
     },
     body: JSON.stringify({ email, password, nameSurname }),
   });
@@ -30,25 +30,21 @@ export async function register(email, password, nameSurname) {
   if (res.ok) {
     return jsonResult;
   } else {
-    throw jsonResult.message;
+    throw jsonResult;
   }
 }
 
 export function logout(token) {
   return fetch(`${baseUrl}/users/logout`, {
     headers: {
-      "content-type": "application/json",
-      "X-Authorization": token,
+      'content-type': 'application/json',
+      'X-Authorization': token,
     },
   });
 }
 
-
-
-
-
 export function getUser() {
-  let username = localStorage.getItem("username");
+  let username = localStorage.getItem('username');
 
   return username;
 }
