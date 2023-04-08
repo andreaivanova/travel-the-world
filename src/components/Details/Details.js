@@ -67,9 +67,9 @@ const Details = () => {
 
 
  
-  const deleteHandler = function onDelete(event) {
+  const deleteHandler = async function onDelete(event) {
     // event.preventDefault();
-    destinationService.deleteDestination(id, user.accessToken);
+   await destinationService.deleteDestination(id, user.accessToken);
     navigate(`/catalog`);
     
   };
