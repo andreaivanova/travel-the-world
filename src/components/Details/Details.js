@@ -50,134 +50,126 @@ const Details = () => {
     checkIfLiked();
   }, [id, user._id]);
 
-<<<<<<< HEAD
   const handleLike = async () => {
     await destinationService.likeAPost(id, user.accessToken);
     setLikes(likes + 1);
     setHasLiked(true);
-=======
 
+    // const deleteHandler = async function onDelete(event) {
+    //   // event.preventDefault();
+    //  await destinationService.deleteDestination(id, user.accessToken);
+    //   navigate(`/catalog`);
 
+    // };
 
+    const deleteHandler = async function onDelete(event) {
+      // event.preventDefault();
+      await destinationService.deleteDestination(id, user.accessToken);
+      navigate(`/catalog`);
+    };
 
+    const submit = () => {
+      confirmAlert({
+        title: 'Confirm to delete',
+        message: 'Are you sure you want to delete this?',
+        buttons: [
+          {
+            label: 'Yes',
+            onClick: () => deleteHandler(),
+          },
+          {
+            label: 'No',
+            // onClick: () => alert('Click No')
+          },
+        ],
+      });
+    };
 
- 
-  const deleteHandler = async function onDelete(event) {
-    // event.preventDefault();
-   await destinationService.deleteDestination(id, user.accessToken);
-    navigate(`/catalog`);
-    
->>>>>>> 18d40b78a22968303a691f01a972c079c6888693
-  };
+    const ownerButtons = (
+      <>
+        <Link
+          to={`/details/${id}/edit`}
+          className="like-button like-button2"
+          state={{
+            city: destination.city,
+            country: destination.country,
+            description: destination.description,
+            imageUrl: destination.imageUrl,
+            recommendation: destination.recommendation,
+            beenThere: destination.beenThere,
+          }}
+        >
+          Edit
+        </Link>
+        <button className="like-button like-button2" onClick={submit}>
+          Delete
+        </button>
+      </>
+    );
 
-  const deleteHandler = async function onDelete(event) {
-    // event.preventDefault();
-    await destinationService.deleteDestination(id, user.accessToken);
-    navigate(`/catalog`);
-  };
+    const userButtons = (
+      <Like
+        likes={likes}
+        hasLiked={hasLiked}
+        handleLike={handleLike}
+        disabled={hasLiked}
+        id={id}
+      />
+    );
 
-  const submit = () => {
-    confirmAlert({
-      title: 'Confirm to delete',
-      message: 'Are you sure you want to delete this?',
-      buttons: [
-        {
-          label: 'Yes',
-          onClick: () => deleteHandler(),
-        },
-        {
-          label: 'No',
-          // onClick: () => alert('Click No')
-        },
-      ],
-    });
-  };
+    // <Like destination={destination} id={id} userId={user._id} token={user.accessToken}/>
 
-  const ownerButtons = (
-    <>
-      <Link
-        to={`/details/${id}/edit`}
-        className="like-button like-button2"
-        state={{
-          city: destination.city,
-          country: destination.country,
-          description: destination.description,
-          imageUrl: destination.imageUrl,
-          recommendation: destination.recommendation,
-          beenThere: destination.beenThere,
-        }}
-      >
-        Edit
-      </Link>
-      <button className="like-button like-button2" onClick={submit}>
-        Delete
-      </button>
-    </>
-  );
+    return (
+      <>
+        <div id="post__single-page">
+          <div className="container_wrapper">
+            <section id="post-featured-image">
+              <div className="post__title-container">
+                <h2>
+                  {destination.city}, {destination.country}
+                </h2>
 
-  const userButtons = (
-    <Like
-      likes={likes}
-      hasLiked={hasLiked}
-      handleLike={handleLike}
-      disabled={hasLiked}
-      id={id}
-    />
-  );
-
-  // <Like destination={destination} id={id} userId={user._id} token={user.accessToken}/>
-
-  return (
-    <>
-      <div id="post__single-page">
-        <div className="container_wrapper">
-          <section id="post-featured-image">
-            <div className="post__title-container">
-              <h2>
-                {destination.city}, {destination.country}
-              </h2>
-
-              <div className="post__avatar-name">
-                <div className="flexbox-view">
-                  <br />
+                <div className="post__avatar-name">
+                  <div className="flexbox-view">
+                    <br />
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
-          <section id="post-content">
-            <div className="post__content">
-              <img
-                className="destination-image post__media_photo"
-                src={destination.imageUrl}
-              />
+            </section>
+            <section id="post-content">
+              <div className="post__content">
+                <img
+                  className="destination-image post__media_photo"
+                  src={destination.imageUrl}
+                />
 
-              <p>{destination.description}</p>
+                <p>{destination.description}</p>
 
-              <h2>Why do you recommend this particular destination?</h2>
-              <p>{destination.recommendation}</p>
+                <h2>Why do you recommend this particular destination?</h2>
+                <p>{destination.recommendation}</p>
 
-              <h2>
-                Have you been there and if yes, could you share some of your
-                experience and memories?
-              </h2>
-              <p>{destination.beenThere}</p>
-            </div>
-          </section>
-          <section id="post-author-bio">
-            <div className="author-bio__container">
-              <div className="author-bio__description">
-                {user._id &&
-                  (user._id && user._id === destination._ownerId
-                    ? ownerButtons
-                    : userButtons)}
+                <h2>
+                  Have you been there and if yes, could you share some of your
+                  experience and memories?
+                </h2>
+                <p>{destination.beenThere}</p>
               </div>
-              <div className="author-bio__social-media"></div>
-            </div>
-          </section>
+            </section>
+            <section id="post-author-bio">
+              <div className="author-bio__container">
+                <div className="author-bio__description">
+                  {user._id &&
+                    (user._id && user._id === destination._ownerId
+                      ? ownerButtons
+                      : userButtons)}
+                </div>
+                <div className="author-bio__social-media"></div>
+              </div>
+            </section>
+          </div>
         </div>
-      </div>
-    </>
-  );
+      </>
+    );
+  };
 };
-
 export default Details;
